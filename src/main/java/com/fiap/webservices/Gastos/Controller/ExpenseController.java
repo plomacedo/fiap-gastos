@@ -1,7 +1,7 @@
 package com.fiap.webservices.Gastos.Controller;
 
 import com.fiap.webservices.Gastos.DTO.ExpenseDTO;
-import com.fiap.webservices.Gastos.Entity.Expense;
+import com.fiap.webservices.Gastos.Model.Expense;
 import com.fiap.webservices.Gastos.Services.ExpenseService;
 import com.fiap.webservices.Gastos.Services.UserService;
 import io.swagger.annotations.Api;
@@ -51,7 +51,7 @@ public class ExpenseController {
         return ResponseEntity.ok(expense);
     }
 
-    @GetMapping("/{studentId}/report")
+    @GetMapping("/{userId}/report")
     public ResponseEntity<byte[]> createExpenseReport(@PathVariable Long userId) throws IOException {
 
         List<Expense> expensesList = expenseService.getExpenseByUserId(userId);

@@ -1,7 +1,7 @@
 package com.fiap.webservices.Gastos.Mapper;
 
 import com.fiap.webservices.Gastos.DTO.UserDTO;
-import com.fiap.webservices.Gastos.Entity.User;
+import com.fiap.webservices.Gastos.Model.User;
 
 public class UserMapper {
 

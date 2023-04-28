@@ -1,7 +1,7 @@
 package com.fiap.webservices.Gastos.Mapper;
 
 import com.fiap.webservices.Gastos.DTO.ExpenseDTO;
-import com.fiap.webservices.Gastos.Entity.Expense;
+import com.fiap.webservices.Gastos.Model.Expense;
 
 public class ExpenseMapper {
 

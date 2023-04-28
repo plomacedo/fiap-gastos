@@ -1,6 +1,6 @@
 package com.fiap.webservices.Gastos.DTO;
 
-import com.fiap.webservices.Gastos.Entity.User;
+import com.fiap.webservices.Gastos.Model.User;
 import java.util.Date;
 
 public class ExpenseDTO {

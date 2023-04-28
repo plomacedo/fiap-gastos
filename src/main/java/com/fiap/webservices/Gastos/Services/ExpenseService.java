@@ -1,8 +1,8 @@
 package com.fiap.webservices.Gastos.Services;
 
 import com.fiap.webservices.Gastos.DTO.ExpenseDTO;
-import com.fiap.webservices.Gastos.Entity.Expense;
-import com.fiap.webservices.Gastos.Entity.User;
+import com.fiap.webservices.Gastos.Model.Expense;
+import com.fiap.webservices.Gastos.Model.User;
 import com.fiap.webservices.Gastos.Mapper.ExpenseMapper;
 import com.fiap.webservices.Gastos.Repository.ExpenseRepository;
 import com.fiap.webservices.Gastos.Repository.UserRepository;
@@ -40,5 +40,8 @@ public class ExpenseService {
                 .orElseThrow(() -> new EntityNotFoundException("user with id " + userId + " not found"));
         return expenseRepository.findByUser(user);
     }
+
+
+
 
 }

@@ -1,7 +1,7 @@
 package com.fiap.webservices.Gastos.Services;
 
 import com.fiap.webservices.Gastos.DTO.UserDTO;
-import com.fiap.webservices.Gastos.Entity.User;
+import com.fiap.webservices.Gastos.Model.User;
 import com.fiap.webservices.Gastos.Mapper.UserMapper;
 import com.fiap.webservices.Gastos.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.fiap.webservices.Gastos.Entity;
+package com.fiap.webservices.Gastos.Model;
 
 import javax.persistence.*;
 import java.io.Serializable;

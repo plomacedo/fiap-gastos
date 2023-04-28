@@ -1,7 +1,7 @@
 package com.fiap.webservices.Gastos.Repository;
 
-import com.fiap.webservices.Gastos.Entity.Expense;
-import com.fiap.webservices.Gastos.Entity.User;
+import com.fiap.webservices.Gastos.Model.Expense;
+import com.fiap.webservices.Gastos.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

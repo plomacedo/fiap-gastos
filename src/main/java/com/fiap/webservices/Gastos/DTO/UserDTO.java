@@ -1,8 +1,6 @@
 package com.fiap.webservices.Gastos.DTO;
 
-import com.fiap.webservices.Gastos.Entity.User;
-
-import javax.persistence.Column;
+import com.fiap.webservices.Gastos.Model.User;
 
 public class UserDTO {
 
@@ -15,12 +13,16 @@ public class UserDTO {
         this.name = name;
         this.email = email;
     }
+    public UserDTO( String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 
     public UserDTO(User user) {
-        id = user.getId();
         name = user.getName();
         email = user.getEmail();
     }
+
 
     public Long getId() {
         return id;
@@ -44,5 +46,14 @@ public class UserDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
