@@ -21,20 +21,16 @@ public class CurrencyConverterController {
     @PostMapping("/convert")
     @ApiOperation(value="this method converts a new expense")
     public double convertCurrency(@RequestBody CurrencyConversionRequest request) throws IOException {
-        ExchangeRateResponse exchangeRateResponse = exchangeRateService.getExchangeRates();
 
-        if (exchangeRateResponse != null && exchangeRateResponse.getRates() != null) {
-            double fromRate = exchangeRateResponse.getRates().get(request.getFrom());
-            double toRate = exchangeRateResponse.getRates().get(request.getTo());
+        ExchangeRateResponse exchangeRateResponse = exchangeRateService.getExchangeRates(request.getFrom(), request.getTo(), request.getAmount());
 
-
-            double a = (request.getAmount() / fromRate) * toRate;
-            System.out.println("Valor %.2f"+ a);
+        if (exchangeRateResponse != null && exchangeRateResponse.isSuccess()) {
+            System.out.println("Valor %.2f"+ exchangeRateResponse.getQuery().getAmount());
             System.out.println(request);
-            System.out.println("de"+fromRate);
-            System.out.println("para"+toRate);
+            System.out.println("de " + exchangeRateResponse.getQuery().getFrom());
+            System.out.println("para " + exchangeRateResponse.getQuery().getTo());
 
-            return (request.getAmount() / fromRate) * toRate;
+            return exchangeRateResponse.getResult();
         } else {
             throw new RuntimeException("Não foi possível obter as taxas de câmbio da API");
         }

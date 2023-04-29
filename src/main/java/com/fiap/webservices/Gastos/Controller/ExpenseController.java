@@ -1,7 +1,10 @@
 package com.fiap.webservices.Gastos.Controller;
 
 import com.fiap.webservices.Gastos.DTO.ExpenseDTO;
+import com.fiap.webservices.Gastos.Model.CurrencyConversionRequest;
+import com.fiap.webservices.Gastos.Model.ExchangeRateResponse;
 import com.fiap.webservices.Gastos.Model.Expense;
+import com.fiap.webservices.Gastos.Services.ExchangeRateService;
 import com.fiap.webservices.Gastos.Services.ExpenseService;
 import com.fiap.webservices.Gastos.Services.UserService;
 import io.swagger.annotations.Api;
@@ -29,11 +32,17 @@ public class ExpenseController {
     private ExpenseService expenseService;
 
     @Autowired
-    private UserService userService;
+    private ExchangeRateService exchangeRateService;
 
     @PostMapping
     @ApiOperation(value="this method creates a new expense")
-    public ResponseEntity<ExpenseDTO> createExpense(@RequestBody ExpenseDTO expenseDTO) {
+    public ResponseEntity<ExpenseDTO> createExpense(@RequestBody ExpenseDTO expenseDTO) throws IOException {
+        CurrencyConversionRequest conversionRequest = new CurrencyConversionRequest();
+        conversionRequest.setAmount(expenseDTO.getAmount());
+        conversionRequest.setFrom(expenseDTO.getOriginalCurrency());
+        conversionRequest.setTo(expenseDTO.getDesiredCurrency());
+        ExchangeRateResponse exchangeRateResponse = exchangeRateService.getExchangeRates(conversionRequest.getFrom(), conversionRequest.getTo(), conversionRequest.getAmount());
+        expenseDTO.setConvertedAmount(exchangeRateResponse.getResult());
         ExpenseDTO savedExpense = expenseService.createExpense(expenseDTO);
         return new ResponseEntity<>(savedExpense, HttpStatus.CREATED);
     }

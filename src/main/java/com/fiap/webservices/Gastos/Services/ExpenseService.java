@@ -1,6 +1,7 @@
 package com.fiap.webservices.Gastos.Services;
 
 import com.fiap.webservices.Gastos.DTO.ExpenseDTO;
+import com.fiap.webservices.Gastos.Model.CurrencyConversionRequest;
 import com.fiap.webservices.Gastos.Model.Expense;
 import com.fiap.webservices.Gastos.Model.User;
 import com.fiap.webservices.Gastos.Mapper.ExpenseMapper;
