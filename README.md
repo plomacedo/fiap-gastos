@@ -24,3 +24,31 @@ https://github.com/plomacedo/fiap-gastos
 
 ### Página da documentação da API
 ![img.png](img.png)
+
+### Instruções
+
+<p align="justify">
+Para o funcionamento a aplicação é necessária a criação de um arquivo chamado env.properties com as seguintes variáveis:
+</p>
+
+```
+# Hostname ou IP do servidor de banco de dados
+DB_SERVER = 
+# Porta utilizada
+DB_PORT = 
+# Nome do banco de dados 
+DB_NAME = 
+# Nome do usuário
+DB_USER = 
+# Senha
+DB_PASSWORD = 
+
+# Google clientId
+GOOGLE_CLIENT_ID =
+# Google clientSecret 
+GOOGLE_CLIENT_SECRET =
+# Url da API 
+EXCHANGE_API_URL = https://api.apilayer.com/exchangerates_data/convert?to=%s&from=%s&amount=%s
+# Chave da API
+EXCHANGE_API_KEY = 
+```
