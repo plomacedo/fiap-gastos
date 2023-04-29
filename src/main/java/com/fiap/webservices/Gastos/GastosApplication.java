@@ -9,18 +9,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @SpringBootApplication
-public class GastosApplication implements CommandLineRunner {
+public class GastosApplication {
 
-	@Autowired
-	private UserRepository userRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(GastosApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		this.userRepository.findAll().forEach(user -> {
-			System.out.println(user.toString());
-		});
-	}
 }
