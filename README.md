@@ -6,7 +6,6 @@
 + RM346139 - Juliana Mota Carneiro
 + RM347401 - Pamela Lais Oliveira Macedo
 + RM346573 - Rafael Luiz Ross de Moura
-+ RM346746 - Vitor Souza Alves 
 
 ### Tema
 <p align="justify">
@@ -17,6 +16,7 @@ O tema da aplicação é gerenciamento de despesas e conversão de moedas. Atrav
 Linguagem: Java 1.8
 Framework: Spring Boot versão 2.7.9
 Banco de Dados: PostgreSQL
+Autenticação: Oauth2 - Google
 
 ### Endereço do código-fonte 
 
@@ -28,7 +28,13 @@ https://github.com/plomacedo/fiap-gastos
 ### Instruções
 
 <p align="justify">
-Para o funcionamento a aplicação é necessária a criação de um arquivo chamado env.properties com as seguintes variáveis:
+Para o funcionamento a aplicação são necessárias algumas configurações:
+1. Instale pgAdmin e faça a criação de um database Postgres
+2. No console de desenvolvimento Google, realize o registro do projeto para que seja gerada um Client Secret e uma Client ID
+
+
+Para a execução do projeto, realize a criação de um arquivo env.properties com as seguintes variáveis:
+
 </p>
 
 ```
@@ -41,7 +47,7 @@ DB_NAME =
 # Nome do usuário
 DB_USER = 
 # Senha
-DB_PASSWORD = 
+DB_PASSWORD = Senha PgAdmin
 
 # Google clientId
 GOOGLE_CLIENT_ID =
@@ -52,3 +58,5 @@ EXCHANGE_API_URL = https://api.apilayer.com/exchangerates_data/convert?to=%s&fro
 # Chave da API
 EXCHANGE_API_KEY = 
 ```
+
+Para iniciar a aplicação, acesse localhost:8080/oauth_login
